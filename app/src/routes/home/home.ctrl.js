@@ -12,6 +12,9 @@ const output = {
   register: (req, res) => {
     res.render("home/register");
   },
+  newboard: (req, res) => {
+    res.render("home/newboard");
+  },
 };
 
 const process = {
@@ -23,6 +26,9 @@ const process = {
   register: async (req, res) => {
     const user = new User(req.body);
     const response = await user.register();
+    return res.json(response);
+  },
+  newboard: (req, res) => {
     return res.json(response);
   },
 };
